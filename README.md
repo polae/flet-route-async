@@ -1,7 +1,9 @@
 <img src="https://s3.us-west-2.amazonaws.com/polae.io/static/polae_logo_text_label_white_256.png"  width="48">
 
 # flet-route-async
-This is a template for running Flet with its new FastAPI engine, using flet-route for async routing.
+This is a project template for Flet using its new FastAPI engine and flet-route for async routing.
+
+FOR REVIEW.  COMMENTS APPRECIATED.
 
 ### Setup
 After cloning this repo, set up your virtual environment in the project root directory /{YOUR_ROOT_DIRECTORY}:
