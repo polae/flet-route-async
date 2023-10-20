@@ -8,8 +8,8 @@ After cloning this repo, set up your virtual environment in the project root dir
 
 ```
 python3.10 -m venv .venv 
-source .venv/bin/activate
 pip install -r requirements.txt
+source .venv/bin/activate
 ```
 
 From the root directory run:

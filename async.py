@@ -2,12 +2,17 @@ from flet import *
 import flet_fastapi
 from flet_route import Routing, path
 
+import os
+
+from packages.styles import FONTS
+
 from pages.home import Home
 from pages.about import About
 
 
 async def main(page: Page):
-    page.title = "ASYNC TEST"
+    page.title = "ASYNC FLET-ROUTE"
+    page.fonts = FONTS
 
     app_routes = [
         path(
@@ -30,4 +35,8 @@ async def main(page: Page):
     await page.go_async(page.route)
 
 
-app = flet_fastapi.app(main)
+app = flet_fastapi.app(
+    main,
+    app_name="POLAEIO",
+    assets_dir=os.path.abspath("assets"),
+)

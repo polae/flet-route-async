@@ -4,26 +4,59 @@ from flet_route import Params, Basket
 
 class About:
     def __init__(self):
-        print("ABOUT: __init__()\n")
+        print(f"{self.__class__.__name__.upper()}.__init__()")
 
     async def go_to(self, e):
         await self.page.go_async(e.control.data)
 
     async def view(self, page: Page, params: Params, basket: Basket):
-        print("ABOUT view() ______________________________________\n\n")
+        print(f"-->{self.__class__.__name__.upper()}.view()")
         self.page = page
 
         return View(
             "/",
             controls=[
-                Text("ABOUT PAGE", size=36),
                 Container(
-                    Text("HOME", color=colors.GREY_600),
-                    height=24,
-                    width=96,
-                    on_click=self.go_to,
-                    data="/",
-                ),
+                    Column(
+                        [
+                            Row(
+                                [
+                                    Column(
+                                        [
+                                            Image(
+                                                src="images/about_page.png",
+                                                width=256,
+                                                border_radius=32,
+                                            ),
+                                            Text(
+                                                "ABOUT PAGE",
+                                                size=36,
+                                                font_family="Mont-Regular",
+                                            ),
+                                            Container(
+                                                Text(
+                                                    "HOME",
+                                                    color="#2E3440",
+                                                    font_family="Mont-Regular",
+                                                ),
+                                                height=24,
+                                                width=96,
+                                                alignment=alignment.center,
+                                                border_radius=16,
+                                                border=border.all(1, color="#2E3440"),
+                                                on_click=self.go_to,
+                                                data="/",
+                                            ),
+                                        ]
+                                    )
+                                ],
+                                alignment=MainAxisAlignment.CENTER,
+                            )
+                        ],
+                        alignment=MainAxisAlignment.CENTER,
+                    ),
+                    expand=True,
+                )
             ],
             bgcolor=colors.AMBER_700,
             scroll=False,
