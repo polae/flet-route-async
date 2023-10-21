@@ -1,4 +1,7 @@
-<img src="https://s3.us-west-2.amazonaws.com/polae.io/static/polae_logo_text_label_white_256.png"  width="64">
+
+
+
+# <img src="https://s3.us-west-2.amazonaws.com/polae.io/static/polae_logo_text_label_white_256.png"  width="48">  Multipage async Flet app
 
 ## flet-route-async
 This is a working project template for Flet using [its new FastAPI engine](https://flet.dev/blog/flet-for-fastapi) and [flet-route](https://github.com/saurabhwadekar/flet_route) for async routing.
@@ -7,31 +10,34 @@ It sets up the FletFastAPI app with its assets directory, so you can store and u
 
 The code has been formatted using the default settings in [Black](https://black.readthedocs.io/en/stable/#).
 
+>Your comments are very welcome.
+
 ### Setup
 
 ---
 
-Here is the deployed [multipage Flet app using the new FastAPI server](https://enroute.fly.dev/).
+Here is the deployed [multipage async Flet app using the new FletFastAPI server](https://enroute.fly.dev/).
 
-To run this locally, clone the repo to `YOUR_PROJECT_ROOT_DIRECTORY`.
+To run this locally, clone the repo to your `PROJECT_ROOT_DIRECTORY`.
 
 Navigate to this directory in your terminal.
-
 
 
 ```
 cd path_to/project_root_directory/
 ```
-Set up your virtual environment in the project root directory `/{PROJECT_ROOT_DIRECTORY}`:
+Now in the project root directory, create your virtual environment.
 
 ```
 python3.10 -m venv .venv
+```
+Activate this virtual environment.
+```
 source .venv/bin/activate 
 ```
 > *You may use a different version of python, but the Docker container (below) uses* `python:3.10-slim-bullseye`
 
-The virtual environment now activated, install the required packages:
-
+And install the required packages:
 
 
 ```
