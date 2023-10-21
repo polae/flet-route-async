@@ -1,6 +1,4 @@
 
-
-
 # <img src="https://s3.us-west-2.amazonaws.com/polae.io/static/polae_logo_text_label_white_256.png"  width="48">  Multipage async Flet app
 
 ## This Repo: flet-route-async 

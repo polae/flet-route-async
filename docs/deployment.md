@@ -5,34 +5,39 @@ This is a working project template for Flet using [its new FastAPI engine](https
 
 The Dockerfile provides for a container to run the app locally, or in the cloud.
 
+I am seeking advice on how to best deploy this app with a path to maximum (optimal) concurrency in the app and responsive scalabilty. Please share your thoughts.
+
 ### Deployment
 
 I have deployed this app on [Fly.io](https://fly.io), which is a recommended service provider in the Flet docs. 
 
-If you have an account and installed fly on your system, you can run (from your root directory):
+After you have created an account and [installed fly on your system](https://fly.io/docs/hands-on/install-flyctl/), you can run (from your root directory):
 
 ```
 fly auth login
 ```
 
-From your root directory, create an app:
+Now that you are logged in, from your root directory, create an app:
 
 ```
 fly launch
 ```
 
-You will be led through a series of questions:
+You will be led through a series of questions. 
+>N.B.: The app name will be used in the fly.toml file below. here are the [questions](https://fly.io/docs/hands-on/launch-app/), if you'd like a reference.
+
+You don't need these ...
 
 ```
-q
-q
-q
+? Would you like to set up a Postgresql database now? No
+? Would you like to set up an Upstash Redis database now? No
 ```
 
-This process will configure and write a fly.toml file in your working directory:
->See [Fly Docs](https://fly.io/docs/reference/configuration/) for information about how to use this file.
+This process will configure and write a `fly.toml` file in your working directory:
+>See [Fly Docs](https://fly.io/docs/reference/configuration/) for more information about how to use this file.
 
 ```
+#fly.toml
 app = "<YOUR-CREATED-FLY-APP-NAME"
 primary_region = "iad"
 
@@ -46,6 +51,14 @@ primary_region = "iad"
   min_machines_running = 0
   processes = ["app"]
 ```
+
+Now, deploy the app.
+
+```
+fly deploy
+```
+
+Visit your newly deployed app at https://--YOUR-CREATED-FLY-APP-NAME--.fly.dev/
 
 
 
