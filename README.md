@@ -17,7 +17,7 @@ The code has been formatted using the default settings in [Black](https://black.
 
 Here is the deployed [Multipage Async Flet App using the new FletFastAPI server](https://flet-route-async.fly.dev/) on [Fly.io](https://fly.io/).
 
-To run this locally, clone the repo to your `PROJECT_ROOT_DIRECTORY`.
+To run this locally, [clone the repo](https://github.com/polae/flet-route-async) to your `PROJECT_ROOT_DIRECTORY`.
 
 Navigate to this directory in your terminal.
 

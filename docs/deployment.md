@@ -34,7 +34,6 @@ You don't need these ...
 ```
 
 This process will configure and write a `fly.toml` file in your working directory:
->See [Fly Docs](https://fly.io/docs/reference/configuration/) for more information about how to use this file.
 
 ```
 #fly.toml
@@ -51,6 +50,8 @@ primary_region = "iad"
   min_machines_running = 0
   processes = ["app"]
 ```
+
+>See [Fly Docs](https://fly.io/docs/reference/configuration/) for more information about how to use this file.
 
 Now, deploy the app.
 
