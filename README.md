@@ -50,7 +50,7 @@ You should now be able to run the app:
 uvicorn async:app --reload
 ```
 
-View the app at [localhost](http://0.0.0.0:8080): http://0.0.0.0:8080.
+View the app at localhost: http://0.0.0.0:8080.
 
 
 ### Docker
@@ -89,7 +89,7 @@ And run the container locally:
 docker run -p 127.0.0.1:8080:8080 async
 ```
 
-Again, you can view the app at [localhost](http://0.0.0.0:8080): http://0.0.0.0:8080.
+Again, you can view the app at localhost: http://0.0.0.0:8080.
 
 
 ## Further
