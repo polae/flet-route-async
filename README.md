@@ -3,10 +3,10 @@
 
 # <img src="https://s3.us-west-2.amazonaws.com/polae.io/static/polae_logo_text_label_white_256.png"  width="48">  Multipage async Flet app
 
-## flet-route-async
+## This Repo: flet-route-async 
 This is a working project template for Flet using [its new FastAPI engine](https://flet.dev/blog/flet-for-fastapi) and [flet-route](https://github.com/saurabhwadekar/flet_route) for async routing.
 
-It sets up the FletFastAPI app with its assets directory, so you can store and use static files. 
+It sets up the FletFastAPI flet app server with its assets directory, so you can store and use static files, and load fonts, etc.
 
 The code has been formatted using the default settings in [Black](https://black.readthedocs.io/en/stable/#).
 
@@ -16,7 +16,7 @@ The code has been formatted using the default settings in [Black](https://black.
 
 ---
 
-Here is the deployed [multipage async Flet app using the new FletFastAPI server](https://enroute.fly.dev/).
+Here is the deployed [multipage async Flet app using the new FletFastAPI server](https://enroute.fly.dev/) on [Fly.io](https://fly.io/).
 
 To run this locally, clone the repo to your `PROJECT_ROOT_DIRECTORY`.
 
@@ -57,8 +57,26 @@ View the app at [localhost](http://0.0.0.0:8080): http://0.0.0.0:8080.
 ### Docker
 ---
 
+ If you have [Docker](https://www.docker.com/) installed on your system, you can run a container locally by building and running the container with the `Dockerfile` from the project root directory.
 
- If you have [Docker](https://www.docker.com/) installed on your system, you can run a container locally.
+ `Dockerfile`
+
+   ```
+   FROM python:3.10-slim-bullseye
+
+  ENV PYTHONUNBUFFERED True
+
+  WORKDIR /app
+
+  COPY ./requirements.txt ./
+  RUN pip install --no-cache-dir -r requirements.txt
+
+  COPY . .
+
+  EXPOSE 8080
+
+  CMD ["uvicorn", "enroute:app", "--host", "0.0.0.0", "--port", "8080"]
+   ```
 
  From the project's root directory, build the docker container:
 
@@ -75,10 +93,9 @@ docker run -p 127.0.0.1:8080:8080 async
 Again, you can view the app at [localhost](http://0.0.0.0:8080): http://0.0.0.0:8080.
 
 
- ### Deployment
+## Further
 
- I have been using by the recommendation in the Flet docs, Fly.io. 
-
+I would also like to understand [the best way to deploy this app](docs/deployment.md).  
 
 ### Docs
 
