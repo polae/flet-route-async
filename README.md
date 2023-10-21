@@ -30,11 +30,13 @@ Now in the project root directory, create your virtual environment.
 ```
 python3.10 -m venv .venv
 ```
-Activate this virtual environment.
+> You may use a different version of python, but the Docker container (below) uses `python:3.10-slim-bullseye`.
+
+Activate the virtual environment.
 ```
 source .venv/bin/activate 
 ```
-> *You may use a different version of python, but the Docker container (below) uses* `python:3.10-slim-bullseye`
+
 
 And install the required packages:
 
