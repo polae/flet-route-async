@@ -14,7 +14,7 @@ class About:
         self.page = page
 
         return View(
-            "/",
+            "/about",
             controls=[
                 Container(
                     Column(
