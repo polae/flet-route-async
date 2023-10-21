@@ -1,8 +1,9 @@
 
-# <img src="https://s3.us-west-2.amazonaws.com/polae.io/static/polae_logo_text_label_white_256.png"  width="48">  Multipage async Flet app
+# <img src="https://s3.us-west-2.amazonaws.com/polae.io/static/polae_logo_text_label_white_256.png"  width="48">  Multipage Async Flet App
+#### using [Flet-Route](https://github.com/saurabhwadekar/flet_route)
 
 ## This Repo: flet-route-async 
-This is a working project template for Flet using [its new FastAPI engine](https://flet.dev/blog/flet-for-fastapi) and [flet-route](https://github.com/saurabhwadekar/flet_route) for async routing.
+This is a working project template for [Flet](https://flet.dev/) using [its new FastAPI engine](https://flet.dev/blog/flet-for-fastapi) and [flet-route](https://github.com/saurabhwadekar/flet_route) for async routing.
 
 It sets up the FletFastAPI flet app server with its assets directory, so you can store and use static files, and load fonts, etc.
 
@@ -14,7 +15,7 @@ The code has been formatted using the default settings in [Black](https://black.
 
 ---
 
-Here is the deployed [multipage async Flet app using the new FletFastAPI server](https://enroute.fly.dev/) on [Fly.io](https://fly.io/).
+Here is the deployed [Multipage Async Flet App using the new FletFastAPI server](https://flet-route-async.fly.dev/) on [Fly.io](https://fly.io/).
 
 To run this locally, clone the repo to your `PROJECT_ROOT_DIRECTORY`.
 

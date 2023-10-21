@@ -37,6 +37,8 @@ async def main(page: Page):
 
 app = flet_fastapi.app(
     main,
-    app_name="POLAEIO",
+    app_name="Flet-Route-Async",
+    app_short_name="MultipageAsyncFletApp",
+    app_description="This is a working project template for Flet using its new FastAPI engine and flet-route for async routing.",
     assets_dir=os.path.abspath("assets"),
 )
