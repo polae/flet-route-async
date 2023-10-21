@@ -36,14 +36,16 @@ class About:
                                             Container(
                                                 Text(
                                                     "HOME",
-                                                    color="#2E3440",
+                                                    color=colors.AMBER_400,
                                                     font_family="Mont-Regular",
                                                 ),
                                                 height=24,
                                                 width=96,
                                                 alignment=alignment.center,
                                                 border_radius=16,
-                                                border=border.all(1, color="#2E3440"),
+                                                border=border.all(
+                                                    1, color=colors.AMBER_400
+                                                ),
                                                 on_click=self.go_to,
                                                 data="/",
                                             ),
@@ -58,7 +60,7 @@ class About:
                     expand=True,
                 )
             ],
-            bgcolor=colors.AMBER_700,
+            bgcolor=colors.BLUE_GREY_800,
             scroll=False,
             padding=0,
             spacing=0,

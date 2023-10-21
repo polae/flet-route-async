@@ -60,7 +60,7 @@ class Home:
                     expand=True,
                 )
             ],
-            bgcolor="#2E3440",
+            bgcolor=colors.BLACK87,  # 2E3440
             scroll=False,
             padding=0,
             spacing=0,
