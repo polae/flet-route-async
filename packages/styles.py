@@ -10,3 +10,12 @@ FONTS = {
     "Fira-Light": "fonts/FiraCode-Light.ttf",
     "Fira-Medium": "fonts/FiraCode-Medium.ttf",
 }
+
+COLORS = {
+    "foreground": "#81A1C1",
+    "background": "#2E3440",
+    "text": "#D8DEE9",
+    "highlight": "#436B77",
+    "warning": "#DAAE4A",
+}
+

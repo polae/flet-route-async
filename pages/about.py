@@ -1,66 +1,47 @@
 from flet import *
 from flet_route import Params, Basket
 
+from packages.api import GetQuote
+from packages.controls import LinkButton, DisplayQuotation
+from packages.schemas import Quotation
+from packages.styles import COLORS
+
 
 class About:
     def __init__(self):
         print(f"{self.__class__.__name__.upper()}.__init__()")
 
-    async def go_to(self, e):
-        await self.page.go_async(e.control.data)
-
     async def view(self, page: Page, params: Params, basket: Basket):
         print(f"-->{self.__class__.__name__.upper()}.view()")
         self.page = page
 
+        if not hasattr(basket, "quote"):
+            self.quote = Quotation(author="None", quote="No Quote")
+        else:
+            self.quote = basket.quote
+
+        self.display_quotation = DisplayQuotation(self.quote)
+        self.home_button = LinkButton("HOME", "/")
+
+        self.screen = Container(
+            Column(
+                [
+                    Image(src="images/bonsai_app_image.png", width=1024),
+                    self.display_quotation,
+                    self.home_button,
+                ],
+                width=512,
+                alignment=MainAxisAlignment.CENTER,
+            ),
+            bgcolor=COLORS["background"],
+            alignment=alignment.center,
+            expand=True,
+        )
+
         return View(
             "/about",
-            controls=[
-                Container(
-                    Column(
-                        [
-                            Row(
-                                [
-                                    Column(
-                                        [
-                                            Image(
-                                                src="images/about_page.png",
-                                                width=256,
-                                                border_radius=32,
-                                            ),
-                                            Text(
-                                                "ABOUT PAGE",
-                                                size=36,
-                                                font_family="Mont-Regular",
-                                            ),
-                                            Container(
-                                                Text(
-                                                    "HOME",
-                                                    color=colors.AMBER_400,
-                                                    font_family="Mont-Regular",
-                                                ),
-                                                height=24,
-                                                width=96,
-                                                alignment=alignment.center,
-                                                border_radius=16,
-                                                border=border.all(
-                                                    1, color=colors.AMBER_400
-                                                ),
-                                                on_click=self.go_to,
-                                                data="/",
-                                            ),
-                                        ]
-                                    )
-                                ],
-                                alignment=MainAxisAlignment.CENTER,
-                            )
-                        ],
-                        alignment=MainAxisAlignment.CENTER,
-                    ),
-                    expand=True,
-                )
-            ],
-            bgcolor=colors.BLUE_GREY_800,
+            controls=[self.screen],
+            bgcolor=COLORS["background"],
             scroll=False,
             padding=0,
             spacing=0,
