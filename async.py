@@ -13,6 +13,7 @@ from pages.about import About
 async def main(page: Page):
     page.title = "ASYNC FLET-ROUTE"
     page.fonts = FONTS
+    page.theme = Theme(font_family="Mont-Light")
 
     app_routes = [
         path(

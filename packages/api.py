@@ -1,26 +1,18 @@
 import httpx
 from httpx import RequestError, HTTPError, ConnectTimeout
+from pydantic import ValidationError
 import os
 import json
 
+from packages.config import BASE_URL, HEADERS, QUERYSTRING
 from packages.schemas import Quotation
 from packages.logger import logger
-
-# API SETTINGS
-api_key = os.getenv("QUOTATION_API_KEY")
-
-url = "https://andruxnet-random-famous-quotes.p.rapidapi.com/"
-querystring = {"cat": "famous", "count": "1"}
-headers = {
-    "X-RapidAPI-Key": api_key,
-    "X-RapidAPI-Host": "andruxnet-random-famous-quotes.p.rapidapi.com",
-}
 
 
 async def GetQuote():
     async with httpx.AsyncClient() as client:
         try:
-            r = await client.get(f"{url}", headers=headers, params=querystring)
+            r = await client.get(f"{BASE_URL}", headers=HEADERS, params=QUERYSTRING)
             r.raise_for_status()
             logger.info(f"Status code: {r.status_code}")
         except HTTPError as exc:
@@ -36,10 +28,13 @@ async def GetQuote():
 
         r_json = r.json()
         # logger.info(json.dumps(r_json, indent=2))
-        quote = Quotation(**r_json[0])
-        logger.info(f"Quote:\n{quote}\n")
+        try:
+            quote = Quotation(**r_json[0])
+            logger.info(f"Quote:\n{quote}\n")
+            return quote
+        except ValidationError as e:
+            print(e.errors())
+            return
 
     # preset = Preset(**preset)
     # logger.info(f"GetPreset({preset_id}):\n{preset}\n")
-
-    return quote

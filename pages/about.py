@@ -16,9 +16,15 @@ class About:
         self.page = page
 
         if not hasattr(basket, "quote"):
-            self.quote = Quotation(author="None", quote="No Quote")
+            self.quote = Quotation(author="No author", quote="No quotation")
         else:
             self.quote = basket.quote
+
+        # ALTERNATE SYNTAX
+        # if basket.get("quote") is not None:
+        #     self.quote = basket.quote
+        # else:
+        #     self.quote = Quotation(author="No author", quote="No quotation")
 
         self.display_quotation = DisplayQuotation(self.quote)
         self.home_button = LinkButton("HOME", "/")
@@ -26,7 +32,12 @@ class About:
         self.screen = Container(
             Column(
                 [
-                    Image(src="images/bonsai_app_image.png", width=1024),
+                    Text(
+                        "This quotation was passed through the BASKET.",
+                        size=24,
+                        color=COLORS["text"],
+                        font_family="Mont-Semi-Bold",
+                    ),
                     self.display_quotation,
                     self.home_button,
                 ],

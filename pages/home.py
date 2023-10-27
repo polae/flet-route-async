@@ -2,7 +2,7 @@ from flet import *
 from flet_route import Params, Basket
 
 from packages.api import GetQuote
-from packages.controls import LinkButton, DisplayQuotation
+from packages.controls import LinkButton, DisplayQuotation, PolaeMarkdown
 from packages.schemas import Quotation
 from packages.styles import COLORS
 
@@ -24,7 +24,12 @@ class Home:
         self.screen = Container(
             Column(
                 [
-                    Image(src="images/bonsai_app_image.png", width=1024),
+                    Text(
+                        "This quotation is a response from from the API.",
+                        size=24,
+                        color=COLORS["text"],
+                        font_family="Mont-Semi-Bold",
+                    ),
                     self.display_quotation,
                     self.about_button,
                 ],

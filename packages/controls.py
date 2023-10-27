@@ -17,11 +17,12 @@ class LinkButton(UserControl):
         return Container(
             Text(
                 f"{self.text.upper()}",
+                size=20,
                 color=COLORS["warning"],
                 font_family="Mont-Regular",
             ),
-            height=24,
-            width=96,
+            height=32,
+            width=128,
             alignment=alignment.center,
             border_radius=16,
             border=border.all(1, color=COLORS["warning"]),
@@ -52,6 +53,22 @@ class DisplayQuotation(UserControl):
                         font_family="Mont-Regular",
                     ),
                 ],
-                width=640,
+                # width=512,
             )
+        )
+
+
+class PolaeMarkdown(UserControl):
+    def __init__(self, text: str):
+        super().__init__()
+        self.text = text
+
+    def build(self):
+        return Markdown(
+            value=self.text,
+            extension_set="gitHubWeb",
+            code_theme="nord",
+            scale=1.2,
+            code_style=TextStyle(font_family="Fira-Retina", size=20),
+            selectable=True,
         )
