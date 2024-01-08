@@ -28,9 +28,9 @@ cd path_to/project_root_directory/
 Now in the project root directory, create your virtual environment.
 
 ```
-python3.10 -m venv .venv
+python3.11 -m venv .venv
 ```
-> You may use a different version of python, but the Docker container (below) uses `python:3.10-slim-bullseye`.
+> You may use a different version of python.
 
 Activate the virtual environment.
 ```
@@ -52,46 +52,8 @@ You should now be able to run the app:
 uvicorn async:app --reload
 ```
 
-View the app at localhost: http://0.0.0.0:8080.
+View the app at localhost: http://0.0.0.0:8000.
 
-
-### Docker
----
-
- If you have [Docker](https://www.docker.com/) installed on your system, you can run a container locally by building and running the container with the `Dockerfile` from the project root directory.
-
- `Dockerfile`
-
-   ```
-   FROM python:3.10-slim-bullseye
-
-  ENV PYTHONUNBUFFERED True
-
-  WORKDIR /app
-
-  COPY ./requirements.txt ./
-  RUN pip install --no-cache-dir -r requirements.txt
-
-  COPY . .
-
-  EXPOSE 8080
-
-  CMD ["uvicorn", "enroute:app", "--host", "0.0.0.0", "--port", "8080"]
-   ```
-
- From the project's root directory, build the docker container:
-
- ```
-docker build -t async .
-```
-
-And run the container locally:
-
-```
-docker run -p 127.0.0.1:8080:8080 async
-```
-
-Again, you can view the app at localhost: http://0.0.0.0:8080.
 
 
 ## Further
